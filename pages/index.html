@@ -13,6 +13,8 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <script src="./../data/Rick&Morty_Response.json"></script>
+ 
   </head>
   <body>
     <div class="app">
@@ -21,22 +23,18 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#locations">LocationDex</a></li>
           <li><a href="#episodes">Episodex</a></li>
-          <li><a>SPOILER ALERT</a></li>
         </ul>
       </div>
       <div class="content">
         <h1>PlumbusDex</h1>
-        <div class="card" style="width: 18rem">
+        <div class="card" style="width: 18rem;">
+          <img src="./../assets/placeholder.jpeg" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+            <h5 class="card-title" data-show="character">{{name}}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
+        </div>
         </div>
       </div>
     </div>
