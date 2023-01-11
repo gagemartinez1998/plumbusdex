@@ -13,7 +13,8 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    <script src="./../data/Rick&Morty_Response.json"></script>
+    <!-- <script src="./../data/Rick&Morty_Response.json"></script> -->
+   
  
   </head>
   <body>
@@ -27,13 +28,106 @@
       </div>
       <div class="content">
         <h1>PlumbusDex</h1>
-        <div class="card" style="width: 18rem;">
+        <div id='card-container'></div>
+        <!-- <div class="card" style="width: 18rem;">
           <img src="./../assets/placeholder.jpeg" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title" data-show="character">{{name}}</h5>
+            <h5 class="card-title" data-show="character">Character Name</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
+        </div> -->
+        <script>
+          function showCharData() {
+            fetch("./../data/Rick&Morty_Response.json")
+            .then(response => response.json())
+            .then(data => createCard(data));
+          }
+    
+          // function createCharList(data) {
+          //   const list = document.createElement('ol');
+          //   for (let i )
+          // }
+          let cardContainer;
+          var characters = [];
+    
+          function createCard(data) {
+          //   for( var key in data.results) {
+          //   var item = data.results[0];
+          //   characters.push({
+          //     "name": item.name,
+          //     "species": item.species
+          //   })
+          // }
+          for (let i = 0; i < data.results.length; i++) {
+    
+          let card = document.createElement('div');
+          card.className = 'card shadow cursor-pointer';
+    
+          let cardBody = document.createElement('div');
+           cardBody.className = 'card-body';
+    
+          let name = document.createElement('h5');
+        name.innerText = data.results[i].name;
+        name.className = 'card-title';
+    
+        let species = document.createElement('div');
+        species.innerText = data.results[i].species;
+        species.className = 'card-text';
+
+        cardBody.appendChild(name);
+        cardBody.appendChild(species);
+        card.appendChild(cardBody);
+        cardContainer.appendChild(card);
+      
+        }
+    
+    }
+    
+    let initListOfCharacters = () => {
+        if (cardContainer) {
+            document.getElementById('card-container').replaceWith(cardContainer);
+            return;
+        }
+    
+        cardContainer = document.getElementById('card-container');
+        characters.forEach((data) => {
+            createTaskCard(data);
+        });
+    };
+    
+    initListOfCharacters();
+            
+          // const mainUL = document.createElement('ol');
+          // for (let i = 0; i < data.results.length; i++) {
+          //   const studentLI = document.createElement('li');
+          //   studentLI.innerHTML = data.results[i].name;
+    
+          // create list for marks
+          //  const nameUL = document.createElement('ul');
+          // for (let i = 0; i < data.results.length; i++) {
+          // const marksLI = document.createElement('li');
+          // marksLI.innerHTML = data.results[i].image;
+          //   nameUL.appendChild(marksLI);
+          // }
+    
+          // append marks list to studentLI
+          // studentLI.appendChild(nameUL);
+          //  append student list to mainUL
+          //   mainUL.appendChild(studentLI);
+          // }
+          // append mainUL to body
+          // document.body.appendChild(mainUL);
+    
+          //  function showData() {
+          //  fetch("./../data/Rick&Morty_Response.json")
+          //   .then(response => response.json())
+          //  .then(data => console.log(data));
+          // }
+        
+        </script>
+        <div>
+          <button onclick="showCharData()"> TEST </button>
         </div>
         </div>
       </div>
