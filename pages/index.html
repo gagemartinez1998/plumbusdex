@@ -16,15 +16,35 @@
   </head>
   <body>
     <div class="app">
-      <div class="nav">
+      <!-- <div class="nav">
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#locations">LocationDex</a></li>
           <li><a href="#episodes">Episodex</a></li>
         </ul>
-      </div>
+      </div> -->
       <div class="content">
-        <h1>PlumbusDex</h1>
+        <!-- <h1>PlumbusDex</h1> -->
+        <nav class="navbar navbar-light bg-light justify-content-between">
+          <h1 class="navbar-brand">PlumbusDex</h1>
+          <button class="btn btn-sm btn-outline-secondary" type="button">
+            LocationDex
+          </button>
+          <button class="btn btn-sm btn-outline-secondary" type="button">
+            EpisoDex
+          </button>
+        </nav>
+        <form class="form-inline">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
         <div id="card-container"></div>
 
         <script>
@@ -92,7 +112,7 @@
           initListOfCharacters();
         </script>
         <div>
-          <button onclick="getAllData()">Poopsock</button>
+          <button onclick="getAllData()">TEST</button>
         </div>
       </div>
     </div>
