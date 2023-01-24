@@ -17,7 +17,7 @@ let cardContainer;
           const createCard = (data) => {
             for (let i = 0; i < data.length; i++) {
               let card = document.createElement("div");
-              card.className = "card shadow cursor-pointer";
+              card.className = "card card-style";
 
               let cardBody = document.createElement("div");
               cardBody.className = "card-body";
