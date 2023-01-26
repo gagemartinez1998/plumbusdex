@@ -38,11 +38,12 @@
           <input
             class="form-control mr-sm-2"
             type="search"
-            placeholder="Search"
+            placeholder="Find a character..."
             aria-label="Search"
             id="myFilter"
           />
           <button
+            id="searchBtn"
             onclick="searchCards()"
             class="btn btn-outline-success my-2 my-sm-0"
             type="button"
@@ -59,6 +60,16 @@
         </div>
         <script src="./../scripts/fetchData.js"></script>
         <script src="./../scripts/searchFunction.js"></script>
+        <script>
+          var input = document.getElementById("myFilter");
+
+          input.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+              event.preventDefault();
+              document.getElementById("searchBtn").click();
+            }
+          });
+        </script>
       </div>
     </div>
   </body>
